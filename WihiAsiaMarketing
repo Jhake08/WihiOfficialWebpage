@@ -1,0 +1,1964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DigitalCommerce Pro - E-commerce Solutions</title>
+<script src="https://cdn.tailwindcss.com/3.4.16"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+<script>
+tailwind.config = {
+theme: {
+extend: {
+colors: {
+primary: '#3b82f6',
+secondary: '#1e293b'
+},
+borderRadius: {
+'none': '0px',
+'sm': '4px',
+DEFAULT: '8px',
+'md': '12px',
+'lg': '16px',
+'xl': '20px',
+'2xl': '24px',
+'3xl': '32px',
+'full': '9999px',
+'button': '8px'
+}
+}
+},
+darkMode: 'class'
+}
+</script>
+<style>
+:where([class^="ri-"])::before {
+content: "\f3c2";
+}
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+}
+body {
+background: linear-gradient(135deg, #000000 0%, #0a0a0a 25%, #111111 50%, #141414 75%, #1a1a1a 100%);
+color: white;
+overflow-x: hidden;
+min-height: 100vh;
+}
+select {
+color: white !important;
+background-color: rgba(255, 255, 255, 0.05) !important;
+}
+select option {
+background-color: #1a1a1a;
+color: white;
+}
+.modal {
+display: none;
+}
+.glass-effect {
+background: rgba(255, 255, 255, 0.03);
+backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.05);
+box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.36);
+}
+.glass-effect {
+background: rgba(255, 255, 255, 0.05);
+backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+}
+.animate-float {
+animation: float 6s ease-in-out infinite;
+}
+@keyframes float {
+0%, 100% { transform: translateY(0px); }
+50% { transform: translateY(-20px); }
+}
+.animate-glow {
+animation: glow 2s ease-in-out infinite alternate;
+}
+@keyframes glow {
+from { box-shadow: 0 0 20px rgba(59, 130, 246, 0.5); }
+to { box-shadow: 0 0 30px rgba(59, 130, 246, 0.8); }
+}
+.animate-slide-up {
+animation: slideUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+opacity: 0;
+transform: translateY(50px);
+perspective: 1000px;
+}
+@keyframes slideUp {
+0% {
+opacity: 0;
+transform: translateY(50px) rotateX(-10deg);
+}
+100% {
+opacity: 1;
+transform: translateY(0) rotateX(0);
+}
+}
+.service-card {
+transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+transform-style: preserve-3d;
+perspective: 1000px;
+}
+.service-card:hover {
+transform: translateY(-15px) rotateY(10deg);
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+.portfolio-item {
+transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.portfolio-item:hover {
+transform: scale(1.05) translateY(-10px);
+box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+.btn-primary {
+position: relative;
+overflow: hidden;
+transition: all 0.4s ease;
+}
+.btn-primary::before {
+content: '';
+position: absolute;
+top: 50%;
+left: 50%;
+width: 300%;
+height: 300%;
+background: radial-gradient(circle, rgba(255,255,255,0.2) 0%, rgba(255,255,255,0) 70%);
+transform: translate(-50%, -50%) scale(0);
+transition: transform 0.6s ease-out;
+}
+.btn-primary:hover::before {
+transform: translate(-50%, -50%) scale(1);
+}
+@keyframes slideUp {
+to {
+opacity: 1;
+transform: translateY(0);
+}
+}
+.animate-fade-in {
+animation: fadeIn 1s ease-out forwards;
+opacity: 0;
+}
+@keyframes fadeIn {
+to { opacity: 1; }
+}
+.hero-bg {
+background: linear-gradient(135deg, rgba(15, 23, 42, 0.8) 0%, rgba(30, 41, 59, 0.6) 100%), url('https://readdy.ai/api/search-image?query=modern%20digital%20commerce%20workspace%20with%20multiple%20screens%20showing%20e-commerce%20platforms%20like%20Facebook%2C%20TikTok%2C%20Lazada%2C%20Shopee%2C%20professional%20office%20environment%20with%20blue%20and%20purple%20lighting%2C%20high-tech%20atmosphere%2C%20clean%20minimalist%20design&width=1920&height=1080&seq=hero-bg&orientation=landscape');
+background-size: cover;
+background-position: center;
+background-attachment: fixed;
+}
+.scroll-indicator {
+animation: bounce 2s infinite;
+}
+@keyframes bounce {
+0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+40% { transform: translateY(-10px); }
+60% { transform: translateY(-5px); }
+}
+.service-card:hover {
+transform: translateY(-10px);
+transition: all 0.3s ease;
+}
+.team-card:hover {
+transform: scale(1.05);
+transition: all 0.3s ease;
+}
+.portfolio-item {
+transition: all 0.3s ease;
+}
+.portfolio-item:hover {
+transform: scale(1.05);
+}
+.nav-link {
+position: relative;
+transition: all 0.3s ease;
+}
+.nav-link::after {
+content: '';
+position: absolute;
+width: 0;
+height: 2px;
+bottom: -5px;
+left: 50%;
+background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+transition: all 0.3s ease;
+transform: translateX(-50%);
+}
+.nav-link:hover::after,
+.nav-link.active::after {
+width: 100%;
+}
+.btn-primary {
+background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+transition: all 0.3s ease;
+}
+.btn-primary:hover {
+background: linear-gradient(135deg, #2563eb, #7c3aed);
+transform: translateY(-2px);
+box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
+}
+.social-icon {
+transition: all 0.3s ease;
+}
+.social-icon:hover {
+transform: translateY(-3px) scale(1.1);
+}
+.loading-spinner {
+display: none;
+animation: spin 1s linear infinite;
+}
+@keyframes spin {
+from { transform: rotate(0deg); }
+to { transform: rotate(360deg); }
+}
+.success-message,
+.error-message {
+display: none;
+animation: slideDown 0.3s ease-out;
+}
+@keyframes slideDown {
+from { transform: translateY(-20px); opacity: 0; }
+to { transform: translateY(0); opacity: 1; }
+}
+.modal {
+display: none;
+animation: modalFadeIn 0.3s ease-out;
+}
+@keyframes modalFadeIn {
+from { opacity: 0; transform: scale(0.9); }
+to { opacity: 1; transform: scale(1); }
+}
+.hamburger-line {
+transition: all 0.3s ease;
+}
+.hamburger-active .hamburger-line:nth-child(1) {
+transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger-active .hamburger-line:nth-child(2) {
+opacity: 0;
+}
+.hamburger-active .hamburger-line:nth-child(3) {
+transform: rotate(-45deg) translate(7px, -6px);
+}
+.parallax-element {
+transform: translateZ(0);
+will-change: transform;
+}
+.filter-active {
+background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+color: white;
+}
+.timeline-item {
+opacity: 0;
+transform: translateX(-50px);
+transition: all 0.6s ease;
+}
+.timeline-item.animate {
+opacity: 1;
+transform: translateX(0);
+}
+.progress-bar {
+width: 0%;
+transition: width 1s ease-in-out;
+}
+.skill-bar.animate .progress-bar {
+width: var(--progress);
+}
+.counter {
+font-variant-numeric: tabular-nums;
+}
+.lightbox {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background: rgba(0, 0, 0, 0.9);
+z-index: 1000;
+animation: fadeIn 0.3s ease-out;
+}
+.lightbox.active {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+.back-to-top {
+position: fixed;
+bottom: 2rem;
+right: 2rem;
+opacity: 0;
+visibility: hidden;
+transition: all 0.3s ease;
+z-index: 100;
+}
+.back-to-top.visible {
+opacity: 1;
+visibility: visible;
+}
+.section-divider {
+height: 1px;
+background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+}
+</style>
+</head>
+<body>
+<nav class="fixed top-0 w-full z-50 glass-effect" style="background: rgba(0, 0, 0, 0.8); backdrop-filter: blur(20px);">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="flex justify-between items-center h-16">
+<div class="flex items-center">
+<span class="text-2xl font-['Pacifico'] text-primary">logo</span>
+</div>
+<div class="hidden md:block">
+<div class="ml-10 flex items-baseline space-x-8">
+<a href="#home" class="nav-link text-white hover:text-primary px-3 py-2 text-sm font-medium">Home</a>
+<a href="#about" class="nav-link text-white hover:text-primary px-3 py-2 text-sm font-medium">About Us</a>
+<a href="#services" class="nav-link text-white hover:text-primary px-3 py-2 text-sm font-medium">Services</a>
+<a href="#portfolio" class="nav-link text-white hover:text-primary px-3 py-2 text-sm font-medium">Portfolio</a>
+<a href="#team" class="nav-link text-white hover:text-primary px-3 py-2 text-sm font-medium">Team</a>
+<a href="#careers" class="nav-link text-white hover:text-primary px-3 py-2 text-sm font-medium">Careers</a>
+<a href="#contact" class="nav-link text-white hover:text-primary px-3 py-2 text-sm font-medium">Contact</a>
+</div>
+</div>
+<div class="md:hidden">
+<button id="mobile-menu-button" class="hamburger p-2">
+<div class="w-6 h-0.5 bg-white hamburger-line"></div>
+<div class="w-6 h-0.5 bg-white hamburger-line mt-1"></div>
+<div class="w-6 h-0.5 bg-white hamburger-line mt-1"></div>
+</button>
+</div>
+</div>
+</div>
+<div id="mobile-menu" class="md:hidden hidden glass-effect">
+<div class="px-2 pt-2 pb-3 space-y-1">
+<a href="#home" class="nav-link block px-3 py-2 text-white hover:text-primary">Home</a>
+<a href="#about" class="nav-link block px-3 py-2 text-white hover:text-primary">About Us</a>
+<a href="#services" class="nav-link block px-3 py-2 text-white hover:text-primary">Services</a>
+<a href="#portfolio" class="nav-link block px-3 py-2 text-white hover:text-primary">Portfolio</a>
+<a href="#team" class="nav-link block px-3 py-2 text-white hover:text-primary">Team</a>
+<a href="#careers" class="nav-link block px-3 py-2 text-white hover:text-primary">Careers</a>
+<a href="#contact" class="nav-link block px-3 py-2 text-white hover:text-primary">Contact</a>
+</div>
+</div>
+</nav>
+<section id="home" class="min-h-screen hero-bg flex items-center justify-center relative">
+<div class="absolute inset-0 bg-gradient-to-r from-slate-900/90 to-slate-800/70"></div>
+<div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+<div class="animate-slide-up">
+<h1 class="text-5xl md:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+Digital Commerce Excellence
+</h1>
+<p class="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto">
+Elevate your business across Facebook, TikTok, Lazada, and Shopee with our comprehensive e-commerce solutions
+</p>
+<div class="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+<button class="btn-primary !rounded-button px-8 py-4 text-lg font-semibold text-white whitespace-nowrap">
+Start Your Journey
+</button>
+<button class="glass-effect !rounded-button px-8 py-4 text-lg font-semibold text-white border border-white/20 hover:bg-white/10 whitespace-nowrap">
+View Portfolio
+</button>
+</div>
+<div class="flex justify-center space-x-6 mb-12">
+<a href="https://facebook.com" target="_blank" class="social-icon w-12 h-12 flex items-center justify-center glass-effect !rounded-full hover:bg-blue-600/20">
+<i class="ri-facebook-fill text-xl"></i>
+</a>
+<a href="https://tiktok.com" target="_blank" class="social-icon w-12 h-12 flex items-center justify-center glass-effect !rounded-full hover:bg-pink-600/20">
+<i class="ri-tiktok-fill text-xl"></i>
+</a>
+<a href="https://lazada.com" target="_blank" class="social-icon w-12 h-12 flex items-center justify-center glass-effect !rounded-full hover:bg-orange-600/20">
+<i class="ri-shopping-bag-fill text-xl"></i>
+</a>
+<a href="https://shopee.com" target="_blank" class="social-icon w-12 h-12 flex items-center justify-center glass-effect !rounded-full hover:bg-red-600/20">
+<i class="ri-store-fill text-xl"></i>
+</a>
+</div>
+</div>
+</div>
+<div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 scroll-indicator cursor-pointer">
+<div class="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
+<div class="w-1 h-3 bg-white rounded-full mt-2 animate-bounce"></div>
+</div>
+</div>
+</section>
+<section id="about" class="py-20 relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+About DigitalCommerce Pro
+</h2>
+<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+We're pioneers in multi-platform e-commerce solutions, helping businesses thrive across all major social commerce platforms
+</p>
+</div>
+<div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+<div class="animate-fade-in">
+<h3 class="text-3xl font-bold mb-6 text-white">Our Mission</h3>
+<p class="text-gray-300 mb-6 leading-relaxed">
+To empower businesses with cutting-edge e-commerce strategies that maximize reach and revenue across Facebook, TikTok, Lazada, and Shopee platforms. We believe in creating seamless shopping experiences that convert browsers into loyal customers.
+</p>
+<div class="space-y-4">
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<span class="text-gray-300">Multi-platform expertise</span>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<span class="text-gray-300">Data-driven strategies</span>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<span class="text-gray-300">24/7 support system</span>
+</div>
+</div>
+<button class="mt-6 text-primary hover:text-blue-300 font-semibold" id="read-more-btn">
+Read More <i class="ri-arrow-right-line ml-1"></i>
+</button>
+</div>
+<div class="relative">
+<img src="https://readdy.ai/api/search-image?query=professional%20team%20working%20on%20e-commerce%20analytics%20dashboard%20with%20multiple%20screens%20showing%20Facebook%20TikTok%20Lazada%20Shopee%20platforms%2C%20modern%20office%20environment%20with%20blue%20purple%20lighting%2C%20collaborative%20workspace%20atmosphere&width=600&height=400&seq=about-img&orientation=landscape"
+alt="About Us" class="w-full h-80 object-cover !rounded-2xl glass-effect animate-float">
+<div class="absolute inset-0 bg-gradient-to-t from-slate-900/50 to-transparent !rounded-2xl"></div>
+</div>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+<div class="glass-effect p-6 !rounded-xl">
+<div class="text-3xl font-bold text-primary counter" data-target="500">0</div>
+<div class="text-gray-300 mt-2">Happy Clients</div>
+</div>
+<div class="glass-effect p-6 !rounded-xl">
+<div class="text-3xl font-bold text-primary counter" data-target="1200">0</div>
+<div class="text-gray-300 mt-2">Projects Done</div>
+</div>
+<div class="glass-effect p-6 !rounded-xl">
+<div class="text-3xl font-bold text-primary counter" data-target="50">0</div>
+<div class="text-gray-300 mt-2">Team Members</div>
+</div>
+<div class="glass-effect p-6 !rounded-xl">
+<div class="text-3xl font-bold text-primary counter" data-target="5">0</div>
+<div class="text-gray-300 mt-2">Years Experience</div>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section id="services" class="py-20 relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+Our Services
+</h2>
+<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+Comprehensive e-commerce solutions tailored for each platform's unique requirements
+</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+<div class="service-card glass-effect p-8 !rounded-xl cursor-pointer" data-service="facebook">
+<div class="w-16 h-16 flex items-center justify-center bg-blue-600/20 !rounded-full mb-6 mx-auto">
+<i class="ri-facebook-fill text-3xl text-blue-400"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-4 text-center">Facebook Commerce</h3>
+<p class="text-gray-300 text-center mb-6">
+Complete Facebook Shop setup, advertising campaigns, and social selling strategies
+</p>
+<button class="w-full btn-primary !rounded-button py-3 text-white font-semibold whitespace-nowrap">
+Learn More
+</button>
+</div>
+<div class="service-card glass-effect p-8 !rounded-xl cursor-pointer" data-service="tiktok">
+<div class="w-16 h-16 flex items-center justify-center bg-pink-600/20 !rounded-full mb-6 mx-auto">
+<i class="ri-tiktok-fill text-3xl text-pink-400"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-4 text-center">TikTok Shop</h3>
+<p class="text-gray-300 text-center mb-6">
+TikTok Shop optimization, influencer partnerships, and viral marketing campaigns
+</p>
+<button class="w-full btn-primary !rounded-button py-3 text-white font-semibold whitespace-nowrap">
+Learn More
+</button>
+</div>
+<div class="service-card glass-effect p-8 !rounded-xl cursor-pointer" data-service="lazada">
+<div class="w-16 h-16 flex items-center justify-center bg-orange-600/20 !rounded-full mb-6 mx-auto">
+<i class="ri-shopping-bag-fill text-3xl text-orange-400"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-4 text-center">Lazada Store</h3>
+<p class="text-gray-300 text-center mb-6">
+Lazada store management, product optimization, and marketplace advertising
+</p>
+<button class="w-full btn-primary !rounded-button py-3 text-white font-semibold whitespace-nowrap">
+Learn More
+</button>
+</div>
+<div class="service-card glass-effect p-8 !rounded-xl cursor-pointer" data-service="shopee">
+<div class="w-16 h-16 flex items-center justify-center bg-red-600/20 !rounded-full mb-6 mx-auto">
+<i class="ri-store-fill text-3xl text-red-400"></i>
+</div>
+<h3 class="text-xl font-bold text-white mb-4 text-center">Shopee Solutions</h3>
+<p class="text-gray-300 text-center mb-6">
+Shopee store setup, promotional campaigns, and seller center optimization
+</p>
+<button class="w-full btn-primary !rounded-button py-3 text-white font-semibold whitespace-nowrap">
+Learn More
+</button>
+</div>
+</div>
+<div class="mt-16 text-center">
+<h3 class="text-2xl font-bold text-white mb-8">Platform Comparison Tool</h3>
+<div class="glass-effect p-8 !rounded-xl max-w-4xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+<button class="platform-toggle px-4 py-2 !rounded-button glass-effect text-white hover:bg-primary/20 whitespace-nowrap" data-platform="facebook">
+Facebook
+</button>
+<button class="platform-toggle px-4 py-2 !rounded-button glass-effect text-white hover:bg-primary/20 whitespace-nowrap" data-platform="tiktok">
+TikTok
+</button>
+<button class="platform-toggle px-4 py-2 !rounded-button glass-effect text-white hover:bg-primary/20 whitespace-nowrap" data-platform="lazada">
+Lazada
+</button>
+<button class="platform-toggle px-4 py-2 !rounded-button glass-effect text-white hover:bg-primary/20 whitespace-nowrap" data-platform="shopee">
+Shopee
+</button>
+</div>
+<div id="comparison-result" class="text-gray-300">
+Select platforms to compare features and pricing
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section id="portfolio" class="py-20 relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+Our Portfolio
+</h2>
+<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+Successful e-commerce projects across all major platforms
+</p>
+</div>
+<div class="flex flex-wrap justify-center gap-4 mb-12">
+<button class="filter-btn px-6 py-3 !rounded-button glass-effect text-white hover:bg-primary/20 whitespace-nowrap filter-active" data-filter="all">
+All Projects
+</button>
+<button class="filter-btn px-6 py-3 !rounded-button glass-effect text-white hover:bg-primary/20 whitespace-nowrap" data-filter="facebook">
+Facebook
+</button>
+<button class="filter-btn px-6 py-3 !rounded-button glass-effect text-white hover:bg-primary/20 whitespace-nowrap" data-filter="tiktok">
+TikTok
+</button>
+<button class="filter-btn px-6 py-3 !rounded-button glass-effect text-white hover:bg-primary/20 whitespace-nowrap" data-filter="lazada">
+Lazada
+</button>
+<button class="filter-btn px-6 py-3 !rounded-button glass-effect text-white hover:bg-primary/20 whitespace-nowrap" data-filter="shopee">
+Shopee
+</button>
+</div>
+<div id="portfolio-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+<div class="portfolio-item glass-effect !rounded-xl overflow-hidden cursor-pointer" data-category="facebook" data-project="1">
+<img src="https://readdy.ai/api/search-image?query=successful%20Facebook%20shop%20interface%20showing%20fashion%20products%20with%20high%20engagement%20metrics%2C%20modern%20e-commerce%20design%20with%20blue%20accent%20colors%2C%20professional%20product%20photography%2C%20clean%20layout&width=400&height=300&seq=portfolio-1&orientation=landscape"
+alt="Facebook Commerce Project" class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Fashion Forward FB Shop</h3>
+<p class="text-gray-300 mb-4">Complete Facebook Shop setup with 300% increase in sales</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-semibold">Facebook Commerce</span>
+<button class="share-btn w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-share-line text-sm"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="portfolio-item glass-effect !rounded-xl overflow-hidden cursor-pointer" data-category="tiktok" data-project="2">
+<img src="https://readdy.ai/api/search-image?query=TikTok%20shop%20interface%20displaying%20beauty%20products%20with%20viral%20video%20content%2C%20pink%20and%20purple%20color%20scheme%2C%20engaging%20product%20showcase%2C%20mobile-first%20design&width=400&height=300&seq=portfolio-2&orientation=landscape"
+alt="TikTok Shop Project" class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Beauty Brand TikTok Success</h3>
+<p class="text-gray-300 mb-4">Viral TikTok campaigns generating 2M+ views</p>
+<div class="flex justify-between items-center">
+<span class="text-pink-400 font-semibold">TikTok Shop</span>
+<button class="share-btn w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-share-line text-sm"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="portfolio-item glass-effect !rounded-xl overflow-hidden cursor-pointer" data-category="lazada" data-project="3">
+<img src="https://readdy.ai/api/search-image?query=Lazada%20marketplace%20store%20showing%20electronics%20products%20with%20promotional%20banners%2C%20orange%20color%20theme%2C%20professional%20product%20listings%2C%20high%20conversion%20rates&width=400&height=300&seq=portfolio-3&orientation=landscape"
+alt="Lazada Store Project" class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Tech Store Lazada Growth</h3>
+<p class="text-gray-300 mb-4">Electronics store with 500% revenue increase</p>
+<div class="flex justify-between items-center">
+<span class="text-orange-400 font-semibold">Lazada Store</span>
+<button class="share-btn w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-share-line text-sm"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="portfolio-item glass-effect !rounded-xl overflow-hidden cursor-pointer" data-category="shopee" data-project="4">
+<img src="https://readdy.ai/api/search-image?query=Shopee%20store%20interface%20featuring%20home%20decor%20products%20with%20promotional%20campaigns%2C%20red%20and%20orange%20color%20scheme%2C%20attractive%20product%20displays%2C%20high%20seller%20ratings&width=400&height=300&seq=portfolio-4&orientation=landscape"
+alt="Shopee Store Project" class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Home Decor Shopee Success</h3>
+<p class="text-gray-300 mb-4">Top seller status achieved in 6 months</p>
+<div class="flex justify-between items-center">
+<span class="text-red-400 font-semibold">Shopee Solutions</span>
+<button class="share-btn w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-share-line text-sm"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="portfolio-item glass-effect !rounded-xl overflow-hidden cursor-pointer" data-category="facebook" data-project="5">
+<img src="https://readdy.ai/api/search-image?query=Facebook%20advertising%20campaign%20dashboard%20showing%20food%20delivery%20service%20with%20high%20engagement%20rates%2C%20blue%20interface%20design%2C%20successful%20ad%20performance%20metrics&width=400&height=300&seq=portfolio-5&orientation=landscape"
+alt="Facebook Ads Project" class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Food Delivery FB Ads</h3>
+<p class="text-gray-300 mb-4">ROI increased by 400% through targeted campaigns</p>
+<div class="flex justify-between items-center">
+<span class="text-primary font-semibold">Facebook Commerce</span>
+<button class="share-btn w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-share-line text-sm"></i>
+</button>
+</div>
+</div>
+</div>
+<div class="portfolio-item glass-effect !rounded-xl overflow-hidden cursor-pointer" data-category="tiktok" data-project="6">
+<img src="https://readdy.ai/api/search-image?query=TikTok%20influencer%20collaboration%20campaign%20for%20fitness%20products%2C%20energetic%20workout%20content%2C%20purple%20and%20pink%20gradients%2C%20high%20engagement%20metrics%2C%20viral%20content&width=400&height=300&seq=portfolio-6&orientation=landscape"
+alt="TikTok Influencer Project" class="w-full h-48 object-cover">
+<div class="p-6">
+<h3 class="text-xl font-bold text-white mb-2">Fitness Brand TikTok Campaign</h3>
+<p class="text-gray-300 mb-4">Influencer partnerships driving 5M+ impressions</p>
+<div class="flex justify-between items-center">
+<span class="text-pink-400 font-semibold">TikTok Shop</span>
+<button class="share-btn w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-share-line text-sm"></i>
+</button>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center">
+<button id="load-more-btn" class="btn-primary !rounded-button px-8 py-4 text-white font-semibold whitespace-nowrap">
+Load More Projects
+</button>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section id="team" class="py-20 relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+Our Expert Team
+</h2>
+<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+Meet the professionals behind your e-commerce success
+</p>
+</div>
+<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+<div class="team-card glass-effect !rounded-xl p-6 text-center cursor-pointer" data-member="1">
+<img src="https://readdy.ai/api/search-image?query=professional%20Asian%20female%20e-commerce%20strategist%20in%20modern%20office%2C%20confident%20smile%2C%20business%20attire%2C%20tech%20background%20with%20multiple%20monitors%2C%20expert%20consultant%20appearance&width=300&height=300&seq=team-1&orientation=squarish"
+alt="Sarah Chen" class="w-24 h-24 !rounded-full mx-auto mb-4 object-cover">
+<h3 class="text-xl font-bold text-white mb-2">Sarah Chen</h3>
+<p class="text-primary mb-3">E-commerce Strategist</p>
+<p class="text-gray-300 text-sm mb-4">5+ years experience in multi-platform commerce</p>
+<div class="flex justify-center space-x-3 mb-4">
+<a href="mailto:sarah@company.com" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-mail-line text-sm"></i>
+</a>
+<a href="https://linkedin.com" target="_blank" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-linkedin-line text-sm"></i>
+</a>
+</div>
+<button class="w-full btn-primary !rounded-button py-2 text-sm text-white font-semibold whitespace-nowrap">
+Book Consultation
+</button>
+</div>
+<div class="team-card glass-effect !rounded-xl p-6 text-center cursor-pointer" data-member="2">
+<img src="https://readdy.ai/api/search-image?query=professional%20male%20digital%20marketing%20expert%20in%20modern%20workspace%2C%20confident%20expression%2C%20casual%20business%20attire%2C%20social%20media%20analytics%20background%2C%20creative%20professional&width=300&height=300&seq=team-2&orientation=squarish"
+alt="Marcus Rodriguez" class="w-24 h-24 !rounded-full mx-auto mb-4 object-cover">
+<h3 class="text-xl font-bold text-white mb-2">Marcus Rodriguez</h3>
+<p class="text-primary mb-3">Social Media Manager</p>
+<p class="text-gray-300 text-sm mb-4">Expert in TikTok and Facebook marketing</p>
+<div class="flex justify-center space-x-3 mb-4">
+<a href="mailto:marcus@company.com" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-mail-line text-sm"></i>
+</a>
+<a href="https://linkedin.com" target="_blank" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-linkedin-line text-sm"></i>
+</a>
+</div>
+<button class="w-full btn-primary !rounded-button py-2 text-sm text-white font-semibold whitespace-nowrap">
+Book Consultation
+</button>
+</div>
+<div class="team-card glass-effect !rounded-xl p-6 text-center cursor-pointer" data-member="3">
+<img src="https://readdy.ai/api/search-image?query=professional%20female%20marketplace%20specialist%20working%20on%20Lazada%20Shopee%20platforms%2C%20focused%20expression%2C%20modern%20office%20environment%2C%20e-commerce%20dashboard%20background&width=300&height=300&seq=team-3&orientation=squarish"
+alt="Lisa Wong" class="w-24 h-24 !rounded-full mx-auto mb-4 object-cover">
+<h3 class="text-xl font-bold text-white mb-2">Lisa Wong</h3>
+<p class="text-primary mb-3">Marketplace Specialist</p>
+<p class="text-gray-300 text-sm mb-4">Lazada and Shopee optimization expert</p>
+<div class="flex justify-center space-x-3 mb-4">
+<a href="mailto:lisa@company.com" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-mail-line text-sm"></i>
+</a>
+<a href="https://linkedin.com" target="_blank" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-linkedin-line text-sm"></i>
+</a>
+</div>
+<button class="w-full btn-primary !rounded-button py-2 text-sm text-white font-semibold whitespace-nowrap">
+Book Consultation
+</button>
+</div>
+<div class="team-card glass-effect !rounded-xl p-6 text-center cursor-pointer" data-member="4">
+<img src="https://readdy.ai/api/search-image?query=professional%20male%20data%20analyst%20working%20on%20e-commerce%20analytics%2C%20serious%20expression%2C%20business%20casual%20attire%2C%20multiple%20charts%20and%20graphs%20background%2C%20tech-savvy%20professional&width=300&height=300&seq=team-4&orientation=squarish"
+alt="David Kim" class="w-24 h-24 !rounded-full mx-auto mb-4 object-cover">
+<h3 class="text-xl font-bold text-white mb-2">David Kim</h3>
+<p class="text-primary mb-3">Data Analyst</p>
+<p class="text-gray-300 text-sm mb-4">Performance tracking and optimization</p>
+<div class="flex justify-center space-x-3 mb-4">
+<a href="mailto:david@company.com" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-mail-line text-sm"></i>
+</a>
+<a href="https://linkedin.com" target="_blank" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-linkedin-line text-sm"></i>
+</a>
+</div>
+<button class="w-full btn-primary !rounded-button py-2 text-sm text-white font-semibold whitespace-nowrap">
+Book Consultation
+</button>
+</div>
+</div>
+<div class="text-center">
+<div class="glass-effect p-8 !rounded-xl max-w-2xl mx-auto">
+<h3 class="text-2xl font-bold text-white mb-4">Contact Our Team</h3>
+<p class="text-gray-300 mb-6">Get personalized consultation from our experts</p>
+<form id="team-contact-form" class="space-y-4">
+<div class="grid md:grid-cols-2 gap-4">
+<input type="text" placeholder="Your Name" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<input type="email" placeholder="Your Email" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+</div>
+<select required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white focus:outline-none focus:border-primary pr-8">
+<option value="">Select Team Member</option>
+<option value="sarah">Sarah Chen - E-commerce Strategist</option>
+<option value="marcus">Marcus Rodriguez - Social Media Manager</option>
+<option value="lisa">Lisa Wong - Marketplace Specialist</option>
+<option value="david">David Kim - Data Analyst</option>
+</select>
+<textarea placeholder="Your Message" rows="4" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary resize-none"></textarea>
+<button type="submit" class="w-full btn-primary !rounded-button py-3 text-white font-semibold whitespace-nowrap">
+Send Message
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section id="careers" class="py-20 relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+Join Our Team
+</h2>
+<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+Build your career in the exciting world of e-commerce
+</p>
+</div>
+<div class="grid lg:grid-cols-3 gap-8 mb-12">
+<div class="lg:col-span-2">
+<div class="space-y-6">
+<div class="glass-effect p-6 !rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-white mb-2">Senior E-commerce Manager</h3>
+<p class="text-primary mb-2">Full-time • Remote</p>
+<p class="text-gray-300 text-sm">Posted 2 days ago</p>
+</div>
+<button class="save-job-btn w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-bookmark-line text-sm"></i>
+</button>
+</div>
+<p class="text-gray-300 mb-4">
+Lead our multi-platform e-commerce strategies across Facebook, TikTok, Lazada, and Shopee. 5+ years experience required.
+</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-primary/20 text-primary !rounded-full text-sm">E-commerce</span>
+<span class="px-3 py-1 bg-primary/20 text-primary !rounded-full text-sm">Strategy</span>
+<span class="px-3 py-1 bg-primary/20 text-primary !rounded-full text-sm">Leadership</span>
+</div>
+<button class="btn-primary !rounded-button px-6 py-2 text-white font-semibold whitespace-nowrap">
+Apply Now
+</button>
+</div>
+<div class="glass-effect p-6 !rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-white mb-2">Social Media Specialist</h3>
+<p class="text-primary mb-2">Full-time • Hybrid</p>
+<p class="text-gray-300 text-sm">Posted 1 week ago</p>
+</div>
+<button class="save-job-btn w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-bookmark-line text-sm"></i>
+</button>
+</div>
+<p class="text-gray-300 mb-4">
+Create engaging content for TikTok and Facebook platforms. Experience with viral marketing preferred.
+</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-primary/20 text-primary !rounded-full text-sm">Social Media</span>
+<span class="px-3 py-1 bg-primary/20 text-primary !rounded-full text-sm">Content Creation</span>
+<span class="px-3 py-1 bg-primary/20 text-primary !rounded-full text-sm">TikTok</span>
+</div>
+<button class="btn-primary !rounded-button px-6 py-2 text-white font-semibold whitespace-nowrap">
+Apply Now
+</button>
+</div>
+<div class="glass-effect p-6 !rounded-xl">
+<div class="flex justify-between items-start mb-4">
+<div>
+<h3 class="text-xl font-bold text-white mb-2">Data Analyst</h3>
+<p class="text-primary mb-2">Full-time • On-site</p>
+<p class="text-gray-300 text-sm">Posted 3 days ago</p>
+</div>
+<button class="save-job-btn w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-bookmark-line text-sm"></i>
+</button>
+</div>
+<p class="text-gray-300 mb-4">
+Analyze e-commerce performance data across multiple platforms. Strong SQL and Python skills required.
+</p>
+<div class="flex flex-wrap gap-2 mb-4">
+<span class="px-3 py-1 bg-primary/20 text-primary !rounded-full text-sm">Analytics</span>
+<span class="px-3 py-1 bg-primary/20 text-primary !rounded-full text-sm">SQL</span>
+<span class="px-3 py-1 bg-primary/20 text-primary !rounded-full text-sm">Python</span>
+</div>
+<button class="btn-primary !rounded-button px-6 py-2 text-white font-semibold whitespace-nowrap">
+Apply Now
+</button>
+</div>
+</div>
+</div>
+<div>
+<div class="glass-effect p-6 !rounded-xl mb-6">
+<h3 class="text-xl font-bold text-white mb-4">Job Alerts</h3>
+<p class="text-gray-300 mb-4">Get notified about new opportunities</p>
+<form id="job-alerts-form" class="space-y-4">
+<input type="email" placeholder="Your Email" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<select class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white focus:outline-none focus:border-primary pr-8">
+<option value="">Job Category</option>
+<option value="management">Management</option>
+<option value="marketing">Marketing</option>
+<option value="analytics">Analytics</option>
+<option value="design">Design</option>
+</select>
+<button type="submit" class="w-full btn-primary !rounded-button py-3 text-white font-semibold whitespace-nowrap">
+Subscribe to Alerts
+</button>
+</form>
+</div>
+<div class="glass-effect p-6 !rounded-xl">
+<h3 class="text-xl font-bold text-white mb-4">Why Join Us?</h3>
+<div class="space-y-3">
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<span class="text-gray-300">Competitive salary</span>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<span class="text-gray-300">Remote work options</span>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<span class="text-gray-300">Professional development</span>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<span class="text-gray-300">Health benefits</span>
+</div>
+<div class="flex items-center space-x-3">
+<div class="w-2 h-2 bg-primary rounded-full"></div>
+<span class="text-gray-300">Team events</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="text-center">
+<div class="glass-effect p-8 !rounded-xl max-w-2xl mx-auto">
+<h3 class="text-2xl font-bold text-white mb-4">Quick Application</h3>
+<p class="text-gray-300 mb-6">Submit your resume and we'll match you with suitable positions</p>
+<form id="quick-application-form" class="space-y-4">
+<div class="grid md:grid-cols-2 gap-4">
+<input type="text" placeholder="Full Name" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<input type="email" placeholder="Email Address" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+</div>
+<input type="tel" placeholder="Phone Number"
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<div class="flex items-center space-x-4">
+<label class="flex items-center space-x-2 text-gray-300 cursor-pointer">
+<input type="file" accept=".pdf,.doc,.docx" class="hidden" id="resume-upload">
+<div class="w-6 h-6 border-2 border-primary !rounded flex items-center justify-center">
+<i class="ri-upload-line text-primary text-sm"></i>
+</div>
+<span>Upload Resume</span>
+</label>
+<span id="file-name" class="text-sm text-gray-400"></span>
+</div>
+<button type="submit" class="w-full btn-primary !rounded-button py-3 text-white font-semibold whitespace-nowrap">
+Submit Application
+</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+<div class="section-divider"></div>
+<section id="contact" class="py-20 relative">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="text-center mb-16">
+<h2 class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+Get In Touch
+</h2>
+<p class="text-xl text-gray-300 max-w-3xl mx-auto">
+Ready to transform your e-commerce business? Let's discuss your project
+</p>
+</div>
+<div class="grid lg:grid-cols-2 gap-12">
+<div>
+<div class="glass-effect p-8 !rounded-xl">
+<h3 class="text-2xl font-bold text-white mb-6">Send us a Message</h3>
+<form id="contact-form" class="space-y-6">
+<div class="grid md:grid-cols-2 gap-4">
+<div>
+<label class="block text-gray-300 mb-2">First Name *</label>
+<input type="text" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-300 mb-2">Last Name *</label>
+<input type="text" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+</div>
+</div>
+<div>
+<label class="block text-gray-300 mb-2">Email Address *</label>
+<input type="email" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-300 mb-2">Phone Number</label>
+<input type="tel"
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+</div>
+<div>
+<label class="block text-gray-300 mb-2">Service Interest</label>
+<select class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white focus:outline-none focus:border-primary pr-8">
+<option value="">Select a service</option>
+<option value="facebook">Facebook Commerce</option>
+<option value="tiktok">TikTok Shop</option>
+<option value="lazada">Lazada Store</option>
+<option value="shopee">Shopee Solutions</option>
+<option value="all">All Platforms</option>
+</select>
+</div>
+<div>
+<label class="block text-gray-300 mb-2">Message *</label>
+<textarea rows="5" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary resize-none"></textarea>
+</div>
+<div class="flex items-center space-x-2">
+<input type="checkbox" id="privacy-consent" required class="hidden">
+<label for="privacy-consent" class="flex items-center space-x-2 text-gray-300 cursor-pointer">
+<div class="w-5 h-5 border-2 border-primary !rounded flex items-center justify-center checkbox-custom">
+<i class="ri-check-line text-primary text-sm hidden"></i>
+</div>
+<span class="text-sm">I agree to the privacy policy and terms of service</span>
+</label>
+</div>
+<button type="submit" class="w-full btn-primary !rounded-button py-4 text-white font-semibold whitespace-nowrap">
+<span class="button-text">Send Message</span>
+<div class="loading-spinner">
+<i class="ri-loader-4-line"></i>
+</div>
+</button>
+<div class="success-message text-green-400 text-center">
+<i class="ri-check-circle-line mr-2"></i>
+Message sent successfully! We'll get back to you soon.
+</div>
+<div class="error-message text-red-400 text-center">
+<i class="ri-error-warning-line mr-2"></i>
+Something went wrong. Please try again.
+</div>
+</form>
+</div>
+</div>
+<div class="space-y-8">
+<div class="glass-effect p-6 !rounded-xl">
+<h3 class="text-xl font-bold text-white mb-4">Contact Information</h3>
+<div class="space-y-4">
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/20 !rounded-full">
+<i class="ri-phone-line text-primary"></i>
+</div>
+<div>
+<p class="text-gray-300">Phone</p>
+<a href="tel:+1234567890" class="text-white hover:text-primary">+1 (234) 567-8900</a>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/20 !rounded-full">
+<i class="ri-mail-line text-primary"></i>
+</div>
+<div>
+<p class="text-gray-300">Email</p>
+<a href="mailto:hello@digitalcommercepro.com" class="text-white hover:text-primary">hello@digitalcommercepro.com</a>
+</div>
+</div>
+<div class="flex items-center space-x-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/20 !rounded-full">
+<i class="ri-map-pin-line text-primary"></i>
+</div>
+<div>
+<p class="text-gray-300">Address</p>
+<p class="text-white">123 Commerce Street, Digital City, DC 12345</p>
+</div>
+</div>
+</div>
+</div>
+<div class="glass-effect p-6 !rounded-xl">
+<h3 class="text-xl font-bold text-white mb-4">Business Hours</h3>
+<div class="space-y-2">
+<div class="flex justify-between">
+<span class="text-gray-300">Monday - Friday</span>
+<span class="text-white">9:00 AM - 6:00 PM</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-300">Saturday</span>
+<span class="text-white">10:00 AM - 4:00 PM</span>
+</div>
+<div class="flex justify-between">
+<span class="text-gray-300">Sunday</span>
+<span class="text-white">Closed</span>
+</div>
+</div>
+</div>
+<div class="glass-effect p-6 !rounded-xl">
+<h3 class="text-xl font-bold text-white mb-4">Quick Contact</h3>
+<div class="flex space-x-4">
+<a href="https://facebook.com" target="_blank" class="w-12 h-12 flex items-center justify-center bg-blue-600/20 !rounded-full hover:bg-blue-600/30 transition-colors">
+<i class="ri-facebook-fill text-blue-400"></i>
+</a>
+<a href="https://wa.me/1234567890" target="_blank" class="w-12 h-12 flex items-center justify-center bg-green-600/20 !rounded-full hover:bg-green-600/30 transition-colors">
+<i class="ri-whatsapp-fill text-green-400"></i>
+</a>
+<a href="https://linkedin.com" target="_blank" class="w-12 h-12 flex items-center justify-center bg-blue-700/20 !rounded-full hover:bg-blue-700/30 transition-colors">
+<i class="ri-linkedin-fill text-blue-300"></i>
+</a>
+<button id="schedule-meeting-btn" class="w-12 h-12 flex items-center justify-center bg-purple-600/20 !rounded-full hover:bg-purple-600/30 transition-colors">
+<i class="ri-calendar-line text-purple-400"></i>
+</button>
+</div>
+</div>
+<div class="glass-effect !rounded-xl overflow-hidden h-64">
+<div class="w-full h-full bg-center bg-cover" style="background-image: url('https://public.readdy.ai/gen_page/map_placeholder_1280x720.png');">
+<div class="w-full h-full bg-slate-900/50 flex items-center justify-center">
+<div class="text-center">
+<i class="ri-map-pin-fill text-primary text-3xl mb-2"></i>
+<p class="text-white font-semibold">Our Location</p>
+<p class="text-gray-300 text-sm">Click to view in maps</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<footer class="bg-slate-900/50 backdrop-blur-lg border-t border-white/10 py-12">
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+<div class="grid md:grid-cols-4 gap-8 mb-8">
+<div>
+<div class="flex items-center mb-4">
+<span class="text-2xl font-['Pacifico'] text-primary">logo</span>
+</div>
+<p class="text-gray-300 mb-4">
+Transforming businesses through innovative e-commerce solutions across all major platforms.
+</p>
+<div class="flex space-x-4">
+<a href="https://facebook.com" target="_blank" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-facebook-fill text-sm"></i>
+</a>
+<a href="https://tiktok.com" target="_blank" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-tiktok-fill text-sm"></i>
+</a>
+<a href="https://linkedin.com" target="_blank" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-linkedin-fill text-sm"></i>
+</a>
+<a href="https://instagram.com" target="_blank" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-instagram-fill text-sm"></i>
+</a>
+</div>
+</div>
+<div>
+<h3 class="text-white font-bold mb-4">Services</h3>
+<ul class="space-y-2">
+<li><a href="#services" class="text-gray-300 hover:text-primary">Facebook Commerce</a></li>
+<li><a href="#services" class="text-gray-300 hover:text-primary">TikTok Shop</a></li>
+<li><a href="#services" class="text-gray-300 hover:text-primary">Lazada Store</a></li>
+<li><a href="#services" class="text-gray-300 hover:text-primary">Shopee Solutions</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-bold mb-4">Company</h3>
+<ul class="space-y-2">
+<li><a href="#about" class="text-gray-300 hover:text-primary">About Us</a></li>
+<li><a href="#team" class="text-gray-300 hover:text-primary">Our Team</a></li>
+<li><a href="#careers" class="text-gray-300 hover:text-primary">Careers</a></li>
+<li><a href="#portfolio" class="text-gray-300 hover:text-primary">Portfolio</a></li>
+</ul>
+</div>
+<div>
+<h3 class="text-white font-bold mb-4">Newsletter</h3>
+<p class="text-gray-300 mb-4">Stay updated with our latest insights</p>
+<form id="newsletter-form" class="space-y-3">
+<input type="email" placeholder="Your email" required
+class="w-full px-4 py-2 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary text-sm">
+<button type="submit" class="w-full btn-primary !rounded-button py-2 text-white font-semibold text-sm whitespace-nowrap">
+Subscribe
+</button>
+</form>
+</div>
+</div>
+<div class="border-t border-white/10 pt-8">
+<div class="flex flex-col md:flex-row justify-between items-center">
+<p class="text-gray-300 text-sm">
+© 2025 DigitalCommerce Pro. All rights reserved.
+</p>
+<div class="flex space-x-6 mt-4 md:mt-0">
+<a href="#" class="text-gray-300 hover:text-primary text-sm">Privacy Policy</a>
+<a href="#" class="text-gray-300 hover:text-primary text-sm">Terms of Service</a>
+<a href="#" class="text-gray-300 hover:text-primary text-sm">Cookie Policy</a>
+</div>
+</div>
+</div>
+</div>
+</footer>
+<button id="back-to-top" class="back-to-top w-12 h-12 bg-primary !rounded-full flex items-center justify-center text-white hover:bg-blue-600 transition-all animate-glow">
+<i class="ri-arrow-up-line"></i>
+</button>
+<div id="lightbox" class="lightbox">
+<button id="lightbox-close" class="absolute top-4 right-4 w-10 h-10 bg-black/50 !rounded-full flex items-center justify-center text-white hover:bg-black/70">
+<i class="ri-close-line"></i>
+</button>
+<img id="lightbox-image" src="" alt="" class="max-w-full max-h-full object-contain">
+</div>
+<div id="service-modal" class="modal fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
+<div class="glass-effect !rounded-xl max-w-2xl w-full max-h-96 overflow-y-auto">
+<div class="p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 id="modal-title" class="text-2xl font-bold text-white"></h3>
+<button id="modal-close" class="w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-close-line"></i>
+</button>
+</div>
+<div id="modal-content" class="text-gray-300"></div>
+<div class="mt-6 flex gap-4">
+<button class="btn-primary !rounded-button px-6 py-3 text-white font-semibold whitespace-nowrap">
+Get Started
+</button>
+<button class="glass-effect !rounded-button px-6 py-3 text-white border border-white/20 hover:bg-white/10 whitespace-nowrap">
+Learn More
+</button>
+</div>
+</div>
+</div>
+</div>
+<script id="button-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+const startJourneyBtn = document.querySelector('#home .btn-primary');
+const viewPortfolioBtn = document.querySelector('#home .glass-effect');
+const getStartedBtns = document.querySelectorAll('#service-modal .btn-primary');
+const learnMoreBtns = document.querySelectorAll('#service-modal .glass-effect');
+const scheduleMeetingBtns = document.querySelectorAll('.team-card .btn-primary');
+const sendEmailBtns = document.querySelectorAll('.team-card .glass-effect');
+const applyNowBtns = document.querySelectorAll('#careers .btn-primary');
+if(startJourneyBtn) {
+startJourneyBtn.addEventListener('click', () => {
+const modal = document.createElement('div');
+modal.className = 'modal fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
+modal.innerHTML = `
+<div class="glass-effect !rounded-xl max-w-md w-full p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-2xl font-bold text-white">Start Your Journey</h3>
+<button class="modal-close w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-close-line"></i>
+</button>
+</div>
+<form class="space-y-4">
+<input type="text" placeholder="Your Name" required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<input type="email" placeholder="Your Email" required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<select required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white focus:outline-none focus:border-primary">
+<option value="">Select Service</option>
+<option value="facebook">Facebook Commerce</option>
+<option value="tiktok">TikTok Shop</option>
+<option value="lazada">Lazada Store</option>
+<option value="shopee">Shopee Solutions</option>
+</select>
+<button type="submit" class="w-full btn-primary !rounded-button py-3 text-white font-semibold">Get Started</button>
+</form>
+</div>
+`;
+document.body.appendChild(modal);
+modal.style.display = 'flex';
+const closeBtn = modal.querySelector('.modal-close');
+const form = modal.querySelector('form');
+closeBtn.addEventListener('click', () => document.body.removeChild(modal));
+modal.addEventListener('click', (e) => {
+if (e.target === modal) document.body.removeChild(modal);
+});
+form.addEventListener('submit', (e) => {
+e.preventDefault();
+const formData = new FormData(form);
+console.log('Starting journey with:', Object.fromEntries(formData));
+document.body.removeChild(modal);
+});
+});
+if(viewPortfolioBtn) {
+viewPortfolioBtn.addEventListener('click', () => {
+document.getElementById('portfolio').scrollIntoView({ behavior: 'smooth' });
+});
+getStartedBtns.forEach(btn => {
+btn.addEventListener('click', () => {
+const service = btn.closest('.service-modal').getAttribute('data-service');
+window.location.href = `#contact?service=${service}`;
+});
+});
+learnMoreBtns.forEach(btn => {
+btn.addEventListener('click', () => {
+const service = btn.closest('.service-modal').getAttribute('data-service');
+window.location.href = `#services?details=${service}`;
+});
+});
+scheduleMeetingBtns.forEach(btn => {
+btn.addEventListener('click', () => {
+const teamMember = btn.closest('.team-card').getAttribute('data-member');
+const modal = document.createElement('div');
+modal.className = 'modal fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
+modal.innerHTML = `
+<div class="glass-effect !rounded-xl max-w-md w-full p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-2xl font-bold text-white">Schedule Meeting</h3>
+<button class="modal-close w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-close-line"></i>
+</button>
+</div>
+<form class="space-y-4">
+<input type="text" placeholder="Your Name" required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<input type="email" placeholder="Your Email" required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<input type="date" required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white focus:outline-none focus:border-primary">
+<select required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white focus:outline-none focus:border-primary">
+<option value="">Select Time</option>
+<option value="09:00">9:00 AM</option>
+<option value="10:00">10:00 AM</option>
+<option value="11:00">11:00 AM</option>
+<option value="14:00">2:00 PM</option>
+<option value="15:00">3:00 PM</option>
+<option value="16:00">4:00 PM</option>
+</select>
+<button type="submit" class="w-full btn-primary !rounded-button py-3 text-white font-semibold">Schedule Meeting</button>
+</form>
+</div>
+`;
+document.body.appendChild(modal);
+modal.style.display = 'flex';
+const closeBtn = modal.querySelector('.modal-close');
+const form = modal.querySelector('form');
+closeBtn.addEventListener('click', () => document.body.removeChild(modal));
+modal.addEventListener('click', (e) => {
+if (e.target === modal) document.body.removeChild(modal);
+});
+form.addEventListener('submit', (e) => {
+e.preventDefault();
+const formData = new FormData(form);
+console.log('Meeting scheduled with:', Object.fromEntries(formData));
+document.body.removeChild(modal);
+});
+});
+});
+sendEmailBtns.forEach(btn => {
+btn.addEventListener('click', () => {
+const teamMember = btn.closest('.team-card').getAttribute('data-member');
+const emailAddress = `team${teamMember}@example.com`;
+window.location.href = `mailto:${emailAddress}`;
+});
+});
+applyNowBtns.forEach(btn => {
+btn.addEventListener('click', () => {
+const jobTitle = btn.closest('.glass-effect').querySelector('h3').textContent;
+const modal = document.createElement('div');
+modal.className = 'modal fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
+modal.innerHTML = `
+<div class="glass-effect !rounded-xl max-w-md w-full p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-2xl font-bold text-white">Apply for ${jobTitle}</h3>
+<button class="modal-close w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-close-line"></i>
+</button>
+</div>
+<form class="space-y-4">
+<input type="text" placeholder="Full Name" required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<input type="email" placeholder="Email Address" required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<input type="tel" placeholder="Phone Number" required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<div class="flex items-center space-x-2">
+<input type="file" id="resume" accept=".pdf,.doc,.docx" required class="hidden">
+<label for="resume" class="cursor-pointer flex items-center space-x-2 text-white">
+<i class="ri-upload-line"></i>
+<span>Upload Resume</span>
+</label>
+</div>
+<textarea placeholder="Cover Letter" rows="4" required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary resize-none"></textarea>
+<button type="submit" class="w-full btn-primary !rounded-button py-3 text-white font-semibold">Submit Application</button>
+</form>
+</div>
+`;
+document.body.appendChild(modal);
+modal.style.display = 'flex';
+const closeBtn = modal.querySelector('.modal-close');
+const form = modal.querySelector('form');
+closeBtn.addEventListener('click', () => document.body.removeChild(modal));
+modal.addEventListener('click', (e) => {
+if (e.target === modal) document.body.removeChild(modal);
+});
+form.addEventListener('submit', (e) => {
+e.preventDefault();
+const formData = new FormData(form);
+console.log('Application submitted for:', jobTitle, Object.fromEntries(formData));
+document.body.removeChild(modal);
+});
+});
+});
+});
+</script>
+<script id="navigation-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+let lastScrollTop = 0;
+const nav = document.querySelector('nav');
+window.addEventListener('scroll', () => {
+const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+if (scrollTop > lastScrollTop) {
+// Scrolling down
+nav.style.transform = 'translateY(-100%)';
+nav.style.transition = 'transform 0.3s ease-in-out';
+} else {
+// Scrolling up
+nav.style.transform = 'translateY(0)';
+nav.style.transition = 'transform 0.3s ease-in-out';
+}
+lastScrollTop = scrollTop;
+// Always show nav when at top
+if (scrollTop === 0) {
+nav.style.transform = 'translateY(0)';
+}
+});
+const mobileMenuButton = document.getElementById('mobile-menu-button');
+const mobileMenu = document.getElementById('mobile-menu');
+const navLinks = document.querySelectorAll('.nav-link');
+mobileMenuButton.addEventListener('click', function() {
+mobileMenu.classList.toggle('hidden');
+mobileMenuButton.classList.toggle('hamburger-active');
+});
+navLinks.forEach(link => {
+link.addEventListener('click', function(e) {
+e.preventDefault();
+const targetId = this.getAttribute('href').substring(1);
+const targetSection = document.getElementById(targetId);
+if (targetSection) {
+targetSection.scrollIntoView({
+behavior: 'smooth',
+block: 'start'
+});
+}
+navLinks.forEach(l => l.classList.remove('active'));
+this.classList.add('active');
+if (!mobileMenu.classList.contains('hidden')) {
+mobileMenu.classList.add('hidden');
+mobileMenuButton.classList.remove('hamburger-active');
+}
+});
+});
+window.addEventListener('scroll', function() {
+const sections = document.querySelectorAll('section');
+const scrollPos = window.scrollY + 100;
+sections.forEach(section => {
+const top = section.offsetTop;
+const bottom = top + section.offsetHeight;
+const id = section.getAttribute('id');
+if (scrollPos >= top && scrollPos <= bottom) {
+navLinks.forEach(link => {
+link.classList.remove('active');
+if (link.getAttribute('href') === `#${id}`) {
+link.classList.add('active');
+}
+});
+}
+});
+});
+});
+</script>
+<script id="scroll-animations">
+document.addEventListener('DOMContentLoaded', function() {
+const scrollIndicator = document.querySelector('.scroll-indicator');
+const backToTopBtn = document.getElementById('back-to-top');
+scrollIndicator.addEventListener('click', function() {
+document.getElementById('about').scrollIntoView({
+behavior: 'smooth'
+});
+});
+window.addEventListener('scroll', function() {
+if (window.scrollY > 300) {
+backToTopBtn.classList.add('visible');
+} else {
+backToTopBtn.classList.remove('visible');
+}
+});
+backToTopBtn.addEventListener('click', function() {
+window.scrollTo({
+top: 0,
+behavior: 'smooth'
+});
+});
+const observerOptions = {
+threshold: 0.1,
+rootMargin: '0px 0px -50px 0px'
+};
+const observer = new IntersectionObserver(function(entries) {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+entry.target.classList.add('animate');
+}
+});
+}, observerOptions);
+document.querySelectorAll('.timeline-item, .service-card, .team-card, .portfolio-item').forEach(el => {
+observer.observe(el);
+});
+});
+</script>
+<script id="counter-animation">
+document.addEventListener('DOMContentLoaded', function() {
+const counters = document.querySelectorAll('.counter');
+const animateCounter = (counter) => {
+if(!counter) return;
+const target = parseInt(counter.getAttribute('data-target') || '0');
+const duration = 2000;
+const step = target / (duration / 16);
+let current = 0;
+const timer = setInterval(() => {
+current += step;
+if (current >= target) {
+counter.textContent = target.toString();
+clearInterval(timer);
+} else {
+counter.textContent = Math.floor(current).toString();
+}
+}, 16);
+};
+const counterObserver = new IntersectionObserver((entries) => {
+entries.forEach(entry => {
+if (entry.isIntersecting) {
+animateCounter(entry.target);
+counterObserver.unobserve(entry.target);
+}
+});
+});
+counters.forEach(counter => {
+counterObserver.observe(counter);
+});
+});
+</script>
+<script id="service-interactions">
+document.addEventListener('DOMContentLoaded', function() {
+const serviceCards = document.querySelectorAll('.service-card');
+const platformToggles = document.querySelectorAll('.platform-toggle');
+const comparisonResult = document.getElementById('comparison-result');
+const serviceModal = document.getElementById('service-modal');
+const modalTitle = serviceModal ? serviceModal.querySelector('#modal-title') : null;
+const modalContent = serviceModal ? serviceModal.querySelector('#modal-content') : null;
+const modalClose = serviceModal ? serviceModal.querySelector('#modal-close') : null;
+const serviceData = {
+facebook: {
+title: 'Facebook Commerce Solutions',
+content: `
+<h4 class="text-lg font-bold text-white mb-3">What We Offer:</h4>
+<ul class="space-y-2 mb-4">
+<li>• Facebook Shop setup and optimization</li>
+<li>• Instagram Shopping integration</li>
+<li>• Facebook Ads campaign management</li>
+<li>• Social commerce strategy development</li>
+<li>• Performance tracking and analytics</li>
+</ul>
+<h4 class="text-lg font-bold text-white mb-3">Pricing: Starting from $999/month</h4>
+<p>Perfect for businesses looking to leverage Facebook's massive user base for e-commerce success.</p>
+`
+},
+tiktok: {
+title: 'TikTok Shop Excellence',
+content: `
+<h4 class="text-lg font-bold text-white mb-3">What We Offer:</h4>
+<ul class="space-y-2 mb-4">
+<li>• TikTok Shop account setup and verification</li>
+<li>• Viral content creation and strategy</li>
+<li>• Influencer partnership management</li>
+<li>• Live shopping event coordination</li>
+<li>• TikTok Ads optimization</li>
+</ul>
+<h4 class="text-lg font-bold text-white mb-3">Pricing: Starting from $1,299/month</h4>
+<p>Ideal for brands targeting younger demographics with engaging video content.</p>
+`
+},
+lazada: {
+title: 'Lazada Marketplace Mastery',
+content: `
+<h4 class="text-lg font-bold text-white mb-3">What We Offer:</h4>
+<ul class="space-y-2 mb-4">
+<li>• Complete store setup and branding</li>
+<li>• Product listing optimization</li>
+<li>• Lazada advertising campaigns</li>
+<li>• Inventory management solutions</li>
+<li>• Customer service support</li>
+</ul>
+<h4 class="text-lg font-bold text-white mb-3">Pricing: Starting from $799/month</h4>
+<p>Perfect for businesses expanding into Southeast Asian markets.</p>
+`
+},
+shopee: {
+title: 'Shopee Success Solutions',
+content: `
+<h4 class="text-lg font-bold text-white mb-3">What We Offer:</h4>
+<ul class="space-y-2 mb-4">
+<li>• Shopee store optimization</li>
+<li>• Product photography and descriptions</li>
+<li>• Promotional campaign management</li>
+<li>• Shopee Ads strategy and execution</li>
+<li>• Sales analytics and reporting</li>
+</ul>
+<h4 class="text-lg font-bold text-white mb-3">Pricing: Starting from $699/month</h4>
+<p>Great for small to medium businesses looking to dominate local markets.</p>
+`
+}
+};
+serviceCards.forEach(card => {
+card.addEventListener('click', function() {
+const service = this.getAttribute('data-service');
+if (serviceData[service]) {
+modalTitle.textContent = serviceData[service].title;
+modalContent.innerHTML = serviceData[service].content;
+serviceModal.style.display = 'flex';
+}
+});
+});
+modalClose.addEventListener('click', function() {
+serviceModal.style.display = 'none';
+});
+serviceModal.addEventListener('click', function(e) {
+if (e.target === serviceModal) {
+serviceModal.style.display = 'none';
+}
+});
+let selectedPlatforms = [];
+platformToggles.forEach(toggle => {
+toggle.addEventListener('click', function() {
+const platform = this.getAttribute('data-platform');
+if (selectedPlatforms.includes(platform)) {
+selectedPlatforms = selectedPlatforms.filter(p => p !== platform);
+this.classList.remove('filter-active');
+} else {
+selectedPlatforms.push(platform);
+this.classList.add('filter-active');
+}
+updateComparison();
+});
+});
+function updateComparison() {
+if (selectedPlatforms.length === 0) {
+comparisonResult.innerHTML = 'Select platforms to compare features and pricing';
+return;
+}
+let comparisonHTML = '<div class="grid gap-4">';
+selectedPlatforms.forEach(platform => {
+if (serviceData[platform]) {
+comparisonHTML += `
+<div class="glass-effect p-4 !rounded">
+<h4 class="font-bold text-white mb-2">${serviceData[platform].title}</h4>
+<p class="text-sm text-gray-300">${serviceData[platform].content.match(/Pricing: (.*?)</)[1]}</p>
+</div>
+`;
+}
+});
+comparisonHTML += '</div>';
+comparisonResult.innerHTML = comparisonHTML;
+}
+});
+</script>
+<script id="portfolio-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+const filterBtns = document.querySelectorAll('.filter-btn');
+const portfolioItems = document.querySelectorAll('.portfolio-item');
+const loadMoreBtn = document.getElementById('load-more-btn');
+const lightbox = document.getElementById('lightbox');
+const lightboxImage = document.getElementById('lightbox-image');
+const lightboxClose = document.getElementById('lightbox-close');
+const shareButtons = document.querySelectorAll('.share-btn');
+let visibleItems = 6;
+filterBtns.forEach(btn => {
+btn.addEventListener('click', function() {
+const filter = this.getAttribute('data-filter');
+filterBtns.forEach(b => b.classList.remove('filter-active'));
+this.classList.add('filter-active');
+portfolioItems.forEach(item => {
+const category = item.getAttribute('data-category');
+if (filter === 'all' || category === filter) {
+item.style.display = 'block';
+} else {
+item.style.display = 'none';
+}
+});
+visibleItems = 6;
+updateLoadMoreButton();
+});
+});
+portfolioItems.forEach(item => {
+item.addEventListener('click', function(e) {
+if (!e.target.closest('.share-btn')) {
+const img = this.querySelector('img');
+lightboxImage.src = img.src;
+lightboxImage.alt = img.alt;
+lightbox.classList.add('active');
+}
+});
+});
+lightboxClose.addEventListener('click', function() {
+lightbox.classList.remove('active');
+});
+lightbox.addEventListener('click', function(e) {
+if (e.target === lightbox) {
+lightbox.classList.remove('active');
+}
+});
+shareButtons.forEach(btn => {
+btn.addEventListener('click', function(e) {
+e.stopPropagation();
+if (navigator.share) {
+navigator.share({
+title: 'Check out this project',
+url: window.location.href
+});
+} else {
+navigator.clipboard.writeText(window.location.href);
+alert('Link copied to clipboard!');
+}
+});
+});
+loadMoreBtn.addEventListener('click', function() {
+visibleItems += 3;
+updateLoadMoreButton();
+});
+function updateLoadMoreButton() {
+const visiblePortfolioItems = Array.from(portfolioItems).filter(item =>
+item.style.display !== 'none'
+);
+if (visibleItems >= visiblePortfolioItems.length) {
+loadMoreBtn.style.display = 'none';
+} else {
+loadMoreBtn.style.display = 'inline-block';
+}
+}
+});
+</script>
+<script id="team-interactions">
+document.addEventListener('DOMContentLoaded', function() {
+const teamCards = document.querySelectorAll('.team-card');
+const teamContactForm = document.getElementById('team-contact-form');
+teamCards.forEach(card => {
+card.addEventListener('click', function() {
+const memberName = this.querySelector('h3').textContent;
+const memberRole = this.querySelector('.text-primary').textContent;
+const modal = document.createElement('div');
+modal.className = 'modal fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
+modal.innerHTML = `
+<div class="glass-effect !rounded-xl max-w-md w-full p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-2xl font-bold text-white">${memberName}</h3>
+<button class="modal-close w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-close-line"></i>
+</button>
+</div>
+<p class="text-primary mb-4">${memberRole}</p>
+<p class="text-gray-300 mb-6">
+Experienced professional with expertise in e-commerce strategy and multi-platform management.
+Available for consultations and project discussions.
+</p>
+<div class="space-y-3">
+<button class="w-full btn-primary !rounded-button py-3 text-white font-semibold whitespace-nowrap">
+Schedule Meeting
+</button>
+<button class="w-full glass-effect !rounded-button py-3 text-white border border-white/20 hover:bg-white/10 whitespace-nowrap">
+Send Email
+</button>
+</div>
+</div>
+`;
+document.body.appendChild(modal);
+modal.style.display = 'flex';
+const closeBtn = modal.querySelector('.modal-close');
+closeBtn.addEventListener('click', function() {
+document.body.removeChild(modal);
+});
+modal.addEventListener('click', function(e) {
+if (e.target === modal) {
+document.body.removeChild(modal);
+}
+});
+});
+});
+teamContactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const formData = new FormData(this);
+const submitBtn = this.querySelector('button[type="submit"]');
+const originalText = submitBtn.textContent;
+submitBtn.textContent = 'Sending...';
+submitBtn.disabled = true;
+setTimeout(() => {
+alert('Message sent successfully! Our team member will contact you soon.');
+this.reset();
+submitBtn.textContent = originalText;
+submitBtn.disabled = false;
+}, 1500);
+});
+});
+</script>
+<script id="careers-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+const saveJobBtns = document.querySelectorAll('.save-job-btn');
+const jobAlertsForm = document.getElementById('job-alerts-form');
+const quickApplicationForm = document.getElementById('quick-application-form');
+const resumeUpload = document.getElementById('resume-upload');
+const fileName = document.getElementById('file-name');
+saveJobBtns.forEach(btn => {
+btn.addEventListener('click', function(e) {
+e.stopPropagation();
+const icon = this.querySelector('i');
+if (icon.classList.contains('ri-bookmark-line')) {
+icon.classList.remove('ri-bookmark-line');
+icon.classList.add('ri-bookmark-fill');
+this.classList.add('text-primary');
+} else {
+icon.classList.remove('ri-bookmark-fill');
+icon.classList.add('ri-bookmark-line');
+this.classList.remove('text-primary');
+}
+});
+});
+jobAlertsForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const submitBtn = this.querySelector('button[type="submit"]');
+const originalText = submitBtn.textContent;
+submitBtn.textContent = 'Subscribing...';
+submitBtn.disabled = true;
+setTimeout(() => {
+alert('Successfully subscribed to job alerts!');
+this.reset();
+submitBtn.textContent = originalText;
+submitBtn.disabled = false;
+}, 1500);
+});
+resumeUpload.addEventListener('change', function() {
+if (this.files.length > 0) {
+fileName.textContent = this.files[0].name;
+} else {
+fileName.textContent = '';
+}
+});
+quickApplicationForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const submitBtn = this.querySelector('button[type="submit"]');
+const originalText = submitBtn.textContent;
+submitBtn.textContent = 'Submitting...';
+submitBtn.disabled = true;
+setTimeout(() => {
+alert('Application submitted successfully! We will review and contact you soon.');
+this.reset();
+fileName.textContent = '';
+submitBtn.textContent = originalText;
+submitBtn.disabled = false;
+}, 2000);
+});
+});
+</script>
+<script id="contact-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+const contactForm = document.getElementById('contact-form');
+const newsletterForm = document.getElementById('newsletter-form');
+const privacyConsent = document.getElementById('privacy-consent');
+const checkboxCustom = document.querySelector('.checkbox-custom');
+const scheduleMeetingBtn = document.getElementById('schedule-meeting-btn');
+privacyConsent.addEventListener('change', function() {
+const checkIcon = checkboxCustom.querySelector('i');
+if (this.checked) {
+checkIcon.classList.remove('hidden');
+} else {
+checkIcon.classList.add('hidden');
+}
+});
+contactForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const submitBtn = this.querySelector('button[type="submit"]');
+const buttonText = submitBtn.querySelector('.button-text');
+const loadingSpinner = submitBtn.querySelector('.loading-spinner');
+const successMessage = this.querySelector('.success-message');
+const errorMessage = this.querySelector('.error-message');
+buttonText.style.display = 'none';
+loadingSpinner.style.display = 'inline-block';
+submitBtn.disabled = true;
+setTimeout(() => {
+buttonText.style.display = 'inline';
+loadingSpinner.style.display = 'none';
+submitBtn.disabled = false;
+if (Math.random() > 0.1) {
+successMessage.style.display = 'block';
+this.reset();
+checkboxCustom.querySelector('i').classList.add('hidden');
+setTimeout(() => {
+successMessage.style.display = 'none';
+}, 5000);
+} else {
+errorMessage.style.display = 'block';
+setTimeout(() => {
+errorMessage.style.display = 'none';
+}, 5000);
+}
+}, 2000);
+});
+newsletterForm.addEventListener('submit', function(e) {
+e.preventDefault();
+const submitBtn = this.querySelector('button[type="submit"]');
+const originalText = submitBtn.textContent;
+submitBtn.textContent = 'Subscribing...';
+submitBtn.disabled = true;
+setTimeout(() => {
+alert('Successfully subscribed to our newsletter!');
+this.reset();
+submitBtn.textContent = originalText;
+submitBtn.disabled = false;
+}, 1500);
+});
+scheduleMeetingBtn.addEventListener('click', function() {
+const modal = document.createElement('div');
+modal.className = 'modal fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
+modal.innerHTML = `
+<div class="glass-effect !rounded-xl max-w-md w-full p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-2xl font-bold text-white">Schedule Meeting</h3>
+<button class="modal-close w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-close-line"></i>
+</button>
+</div>
+<form class="space-y-4">
+<input type="text" placeholder="Your Name" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<input type="email" placeholder="Your Email" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white placeholder-gray-400 focus:outline-none focus:border-primary">
+<input type="date" required
+class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white focus:outline-none focus:border-primary">
+<select required class="w-full px-4 py-3 bg-white/5 border border-white/10 !rounded-button text-white focus:outline-none focus:border-primary pr-8">
+<option value="">Select Time</option>
+<option value="09:00">9:00 AM</option>
+<option value="10:00">10:00 AM</option>
+<option value="11:00">11:00 AM</option>
+<option value="14:00">2:00 PM</option>
+<option value="15:00">3:00 PM</option>
+<option value="16:00">4:00 PM</option>
+</select>
+<button type="submit" class="w-full btn-primary !rounded-button py-3 text-white font-semibold whitespace-nowrap">
+Schedule Meeting
+</button>
+</form>
+</div>
+`;
+document.body.appendChild(modal);
+modal.style.display = 'flex';
+const closeBtn = modal.querySelector('.modal-close');
+const form = modal.querySelector('form');
+closeBtn.addEventListener('click', function() {
+document.body.removeChild(modal);
+});
+modal.addEventListener('click', function(e) {
+if (e.target === modal) {
+document.body.removeChild(modal);
+}
+});
+form.addEventListener('submit', function(e) {
+e.preventDefault();
+alert('Meeting scheduled successfully! We will send you a confirmation email.');
+document.body.removeChild(modal);
+});
+});
+});
+</script>
+<script id="read-more-functionality">
+document.addEventListener('DOMContentLoaded', function() {
+const readMoreBtn = document.getElementById('read-more-btn');
+readMoreBtn.addEventListener('click', function() {
+const modal = document.createElement('div');
+modal.className = 'modal fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4';
+modal.innerHTML = `
+<div class="glass-effect !rounded-xl max-w-2xl w-full max-h-96 overflow-y-auto">
+<div class="p-8">
+<div class="flex justify-between items-center mb-6">
+<h3 class="text-2xl font-bold text-white">Our Complete Story</h3>
+<button class="modal-close w-8 h-8 flex items-center justify-center glass-effect !rounded-full hover:bg-primary/20">
+<i class="ri-close-line"></i>
+</button>
+</div>
+<div class="text-gray-300 space-y-4">
+<p>Founded in 2020, DigitalCommerce Pro emerged from a vision to democratize e-commerce success across all major social and marketplace platforms. Our founders, experienced in both traditional retail and digital marketing, recognized the growing complexity of multi-platform commerce.</p>
+<p>What started as a small consultancy has grown into a comprehensive e-commerce solutions provider, serving over 500 businesses across various industries. We've helped brands achieve remarkable growth rates, with an average revenue increase of 300% within the first year of partnership.</p>
+<p>Our approach combines data-driven strategies with creative content development, ensuring that each client's unique brand voice resonates across Facebook, TikTok, Lazada, and Shopee. We believe in building long-term partnerships rather than short-term gains.</p>
+<p>Today, we continue to innovate and adapt to the ever-changing landscape of social commerce, always staying ahead of platform updates and consumer trends to deliver exceptional results for our clients.</p>
+</div>
+</div>
+</div>
+`;
+document.body.appendChild(modal);
+modal.style.display = 'flex';
+const closeBtn = modal.querySelector('.modal-close');
+closeBtn.addEventListener('click', function() {
+document.body.removeChild(modal);
+});
+modal.addEventListener('click', function(e) {
+if (e.target === modal) {
+document.body.removeChild(modal);
+}
+});
+});
+});
+</script>
+</body>
+</html>
